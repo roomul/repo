@@ -20,3 +20,6 @@ meson \
 
 ninja -C output
 ninja -C output install
+
+# fix loaders
+mkdir -p "$1/usr/lib/gdk-pixbuf-2.0/2.10.0"

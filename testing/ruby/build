@@ -1,0 +1,9 @@
+#!/bin/sh -e
+
+./configure \
+	--prefix=/usr \
+	--enable-shared \
+	--disable-install-doc \
+	--with-ruby-version=minor
+make
+make DESTDIR="$1" install

@@ -1,7 +1,0 @@
-#!/bin/sh -e
-
-./configure \
-	--prefix=/usr \
-	--enable-libgdbm-compat
-make
-make DESTDIR="$1" install

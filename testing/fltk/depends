@@ -1,8 +1,0 @@
-cmake make
-samurai make
-alsa-lib
-libjpeg-turbo
-mesa
-util-linux
-libXft
-libXinerama

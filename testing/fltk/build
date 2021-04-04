@@ -1,0 +1,30 @@
+#!/bin/sh -e
+
+export DESTDIR="$1"
+export CFLAGS="$CFLAGS -fPIC"
+
+cmake -B build \
+	-DCMAKE_INSTALL_PREFIX=/usr \
+	-DCMAKE_BUILD_TYPE=Release \
+	-DOPTION_CREATE_LINKS=ON \
+	-DOPTION_BUILD_SHARED_LIBS=ON \
+	-DOpenGL_GL_PREFERENCE=GLVND \
+	-Wno-dev
+
+cmake --build   build
+cmake --install build
+
+# add apps
+for app in {blocks,checkers,sudoku}; do
+	if [ -f "build/bin/examples/$app" ]; then
+		install -Dm755 -t "$1/usr/bin" "build/bin/examples/$app"
+		install -Dm644 "test/desktop/$app.desktop" \
+			-t "$1/usr/share/applications/"
+		install -Dm644 "test/desktop/$app-32.png" \
+			"$1/usr/share/icons/hicolor/32x32/apps/$app.png"
+		install -Dm644 "test/desktop/$app-128.png" \
+			"$1/usr/share/icons/hicolor/128x128/apps/$app.png"
+	fi
+done
+
+rm -f "$1/usr/include/FL/README.Xcode"

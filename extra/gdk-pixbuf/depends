@@ -1,6 +1,5 @@
 glib
 libX11
 libpng
-gobject-introspection
 meson   make
 pkgconf make

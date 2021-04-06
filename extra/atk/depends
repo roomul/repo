@@ -1,4 +1,5 @@
 glib
 libffi
+gobject-introspection
 meson   make
 pkgconf make

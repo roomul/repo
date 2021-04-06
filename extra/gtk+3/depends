@@ -1,3 +1,4 @@
+gobject-introspection
 atk
 fribidi
 gdk-pixbuf
@@ -10,5 +11,6 @@ libXinerama
 libXrandr
 libepoxy
 pango
+gtk+2
 pkgconf make
 python  make

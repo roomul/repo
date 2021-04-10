@@ -38,15 +38,6 @@
  
          pkg_build kiss
          args i kiss
-@@ -1550,7 +1541,7 @@
-         l|list)     pkg_list "$@" ;;
-         u|update)   pkg_updates ;;
-         s|search)   for pkg do pkg_find "$pkg" all; done ;;
--        v|version)  printf '5.2.3\n' ;;
-+        v|version)  printf '5.2.3a\n' ;;
- 
-         '')
-             log 'kiss [a|b|c|d|i|l|r|s|u|v] [pkg]...'
 @@ -1616,7 +1607,7 @@
  
      # Allow the user to disable colors in output via an environment variable.

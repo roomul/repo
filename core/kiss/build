@@ -1,7 +1,5 @@
 #!/bin/sh -e
 
-patch -p1 < ssu-ksh-fixes.diff
-
 mkdir -p "$1/usr/bin"
 
 # Install kiss utilities.

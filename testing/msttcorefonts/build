@@ -1,0 +1,27 @@
+#!/bin/sh -e
+
+font_files="andale32.exe \
+	arial32.exe \
+	arialb32.exe \
+	comic32.exe \
+	courie32.exe \
+	georgi32.exe \
+	impact32.exe \
+	times32.exe \
+	trebuc32.exe \
+	webdin32.exe \
+	verdan32.exe"
+
+install -dm755 "$1/usr/share/fonts/msttcorefonts"
+
+mkdir cab-contents
+
+for i in $font_files ; do
+	cabextract --lowercase --directory=cab-contents $i
+	install -m644 cab-contents/*.ttf "$1/usr/share/fonts/msttcorefonts/"
+	rm -f cab-contents/*
+done
+
+cabextract --lowercase --directory=cab-contents wd97vwr32.exe
+cabextract --lowercase --directory=cab-contents cab-contents/viewer1.cab
+cp cab-contents/*.ttf "$1/usr/share/fonts/msttcorefonts/"

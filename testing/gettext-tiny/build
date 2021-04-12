@@ -1,0 +1,7 @@
+#!/bin/sh -e
+
+make LIBINTL=MUSL
+make LIBINTL=MUSL \
+	DESTDIR="$1" \
+	prefix=/ \
+	install

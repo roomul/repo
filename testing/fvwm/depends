@@ -1,0 +1,16 @@
+zlib
+readline
+libICE
+libSM
+libX11
+libXau
+libxcb
+libXcursor
+libXext
+libXfixes
+libXpm
+libXrandr
+libXrender
+fontconfig
+libXft
+libXinerama

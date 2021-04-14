@@ -12,7 +12,7 @@ export CFLAGS="$CFLAGS -fno-semantic-interposition"
 export CXXFLAGS="$CXXFLAGS -fno-semantic-interposition"
 export LDFLAGS="$LDFLAGS -fno-semantic-interposition"
 
-#patch -p1 < python3-always-pip.patch
+sed 's|cpython/||' -i Include/cpython/pystate.h
 
 ./configure \
     --prefix=/usr \
@@ -25,8 +25,8 @@ export LDFLAGS="$LDFLAGS -fno-semantic-interposition"
 make
 make DESTDIR="$1" install
 
-ln -s python3 "$1/usr/bin/python"
-ln -s pip3    "$1/usr/bin/pip"
+ln -sv python3 "$1/usr/bin/python"
+ln -sv pip3    "$1/usr/bin/pip"
 
 # Make static library writable.
 chmod u+w "$1/usr/lib/libpython"*

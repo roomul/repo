@@ -1,0 +1,6 @@
+libXrandr
+libXinerama
+libX11
+libXext
+libfontenc
+fontconfig

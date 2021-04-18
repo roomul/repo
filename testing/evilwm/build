@@ -1,0 +1,6 @@
+#!/bin/sh -e
+
+sed -i 's/-D_SVID_SOURCE/-D_DEFAULT_SOURCE/' Makefile
+
+make
+make DESTDIR="$1" install

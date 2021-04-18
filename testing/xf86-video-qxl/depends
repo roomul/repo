@@ -1,0 +1,7 @@
+libXfont2
+xorg-server
+libdrm
+spice-protocol
+autoconf make
+automake make
+libtool make

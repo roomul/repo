@@ -1,0 +1,7 @@
+#!/bin/sh -e
+
+sh ./autogen.sh \
+	--prefix=/usr \
+	--enable-xspice=no
+make
+make DESTDIR="$1" install

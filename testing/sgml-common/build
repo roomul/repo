@@ -1,0 +1,14 @@
+#!/bin/sh -e
+
+patch -Np1 -i sgml-common-0.6.3-manpage-1.patch
+
+autoreconf -f -i || true
+
+./configure \
+	--prefix=/usr \
+	--sysconfdir=/etc
+make
+make \
+	docdir=/usr/share/doc \
+	DESTDIR="$1" \
+	install

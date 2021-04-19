@@ -1,0 +1,18 @@
+#!/bin/sh -e
+
+sed -i s/3000/5000/ libxslt/transform.c
+sed -i s/3000/5000/ doc/xsltproc.1
+sed -i s/3000/5000/ doc/xsltproc.xml
+
+# not static and withou python (2 version)
+./configure \
+	--prefix=/usr \
+	--disable-static \
+	--without-python
+make
+
+sed -e 's@http://cdn.docbook.org/release/xsl@https://cdn.docbook.org/release/xsl-nons@' \
+	-e 's@\$Date\$@31 October 2019@' -i doc/xsltproc.xml
+xsltproc/xsltproc --nonet doc/xsltproc.xml -o doc/xsltproc.1
+
+make DESTDIR="$1" install

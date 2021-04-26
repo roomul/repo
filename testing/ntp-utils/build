@@ -6,3 +6,5 @@
 	--disable-static
 make
 make DESTDIR="$1" install
+
+install -D -v -m 644 ntp.config "$1/etc/ntp.conf"

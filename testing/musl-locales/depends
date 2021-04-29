@@ -1,0 +1,4 @@
+musl
+gettext-tiny
+gcc make
+cmake make

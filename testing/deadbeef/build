@@ -1,0 +1,9 @@
+#!/bin/sh -e
+
+./configure \
+    --prefix=/usr \
+    --disable-lfm \
+    --disable-adplug \
+    --disable-sid
+make
+make DESTDIR="$1" install

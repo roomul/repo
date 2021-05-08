@@ -1,6 +1,7 @@
 #!/bin/sh -e
 
 mkdir -p "$1/usr/bin"
+mkdir -p "$1/etc"
 
 # Install kiss utilities.
 cp -f kiss contrib/* "$1/usr/bin/"
@@ -12,6 +13,9 @@ done
 
 # Install the Wiki.
 cp -r wiki "$1/usr/share/doc/kiss/wiki"
+
+# Add kiss.conf
+cp -f kiss.conf "$1/etc/"
 
 # Remove unnecessary pages.
 rm -f "$1/usr/share/doc/kiss/wiki/README.txt" \

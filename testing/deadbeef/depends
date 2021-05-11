@@ -2,6 +2,7 @@ gtk+3
 ffmpeg
 lame
 jansson
+libass
 faad2
 libmad
 gettext-tiny

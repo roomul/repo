@@ -1,0 +1,6 @@
+#!/bin/sh -e
+
+cd patched-fonts
+
+find . -iname "*.ttf" -exec install -v -Dm644 {} "$1/usr/share/fonts/TTF/{}" \;
+find . -iname "*.otf" -exec install -v -Dm644 {} "$1/usr/share/fonts/OTF/{}" \;
